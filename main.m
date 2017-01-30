@@ -14,31 +14,31 @@ subwindowSize = 9;
 [subImage2, corners2] = calcMinorEigenImageAndCorner(image2_gray, windowSize, subwindowSize, threshold);
 
 % feature matching 
-[corr1, corrPoints1] = matchFeatures(image1, corners1, image2, corners2, windowSize);
+[corr1, corrPoints1] = matchFeatures(image1_gray, corners1, image2_gray, corners2, windowSize);
 sum(corr1>0)
-[corr2, corrPoints2] = matchFeatures(image2, corners2, image1, corners1, windowSize);
-sum(corr2>0)
+[corr2, corrPoints2] = matchFeatures(image2_gray, corners2, image1_gray, corners1, windowSize);
+ sum(corr2>0)
 
 figure;
 imshow(image1);
 hold on;
-plot(corners1(:,2),corners1(:,1),'s','MarkerSize',8,'Color','r');
-% for i = 1:size(corr1)
-%    if corr1(i)>0
-%          plot([corners1(i,2), corrPoints1(i,2)],[corners1(i,1), corrPoints1(i,1)]);
-%          plot(corrPoints1(i,2),corrPoints1(i,1),'s','MarkerSize',10,'Color','b');
-%    end
-% end
+% plot(corners1(:,2),corners1(:,1),'s','MarkerSize',8,'Color','r');
+for i = 1:size(corr1)
+   if corr1(i)>0
+         plot([corners1(i,2), corrPoints1(i,2)],[corners1(i,1), corrPoints1(i,1)]);
+         plot(corrPoints1(i,2),corrPoints1(i,1),'s','MarkerSize',10,'Color','b');
+   end
+end
 
 
 figure;
 imshow(image2);
 hold on;
-plot(corners2(:,2),corners2(:,1),'s','MarkerSize',8,'Color','r');
-% for i = 1:size(corr2)
-%    if corr2(i)>0
-%          plot([corners2(i,2), corrPoints2(i,2)],[corners2(i,1), corrPoints2(i,1)]);
-%          plot(corrPoints2(i,2),corrPoints2(i,1),'s','MarkerSize',10,'Color','b');
-%    end
-% end
+% plot(corners2(:,2),corners2(:,1),'s','MarkerSize',8,'Color','r');
+for i = 1:size(corr2)
+   if corr2(i)>0
+         plot([corners2(i,2), corrPoints2(i,2)],[corners2(i,1), corrPoints2(i,1)]);
+         plot(corrPoints2(i,2),corrPoints2(i,1),'s','MarkerSize',10,'Color','b');
+   end
+end
 

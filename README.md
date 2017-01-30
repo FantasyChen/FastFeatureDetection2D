@@ -3,4 +3,5 @@
 
 
 * Matlab implementation of feature detection using [Foerstner Method](https://www.researchgate.net/publication/258654529_A_fast_operator_for_detection_and_precise_location_of_distinct_points_corners_and_circular_features) .
-* Matlab implementation of brute-force matching based on __Normalized Cross Correlation (NCC)__. 
+* Matlab implementation of brute-force matching based on __Normalized Cross Correlation (NCC)__.
+  - Along with ratio distance threshold and subpixel accuracy matching based on __Fitting in two dimension__.
